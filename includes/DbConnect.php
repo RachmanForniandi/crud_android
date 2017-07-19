@@ -1,6 +1,6 @@
 <?php 
 	class DbConnect{
-		private $connection;
+		private $con;
 		
 		function __construct(){
 			
@@ -8,13 +8,13 @@
 		
 		function connect(){
 			include_once dirname(__FILE__).'/Constants.php';
-			$this->connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+			$this->con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 			
 			if(mysqli_connect_errno()){
 				echo "Gagal terhubung dengan database".mysqli_connect_err();
 			}
 			
-			return $this->connection;
+			return $this->con;
 		}
 	}
 ?>
