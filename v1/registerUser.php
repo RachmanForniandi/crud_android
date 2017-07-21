@@ -12,17 +12,22 @@ $response = array();
 			//operate the data further
 			
 			$db = new DbOperations();
-			
-			if($db->createUser(
-				$_POST['username'],
-				$_POST['password'],
-				$_POST['email']
-			)){
+
+			$result = $db->createUser(
+										$_POST['username'],
+										$_POST['password'],
+										$_POST['email']
+									 );
+
+			if($result == 1){
 				$response['error']= false;
 				$response['message']= "User registered successfully";	
-			}else{
+			}elseif($result == 2){
 				$response['error']= true;
 				$response['message']= "Some error occured. Please try again.";	
+			}elseif($result == 0){
+				$response['error']= true;
+				$response['message']= "It seems you are already registered. please use different username and email ";
 			}
 
 			}else{
