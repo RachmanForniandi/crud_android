@@ -21,6 +21,7 @@
 				$password = md5($pass);
 				$stmt = $this->connection->prepare("INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES (NULL, ?, ?, ?);");
 				$stmt->bind_param("sss",$username,$password,$email);
+				
 				if($stmt->execute()){
 					return 1;
 				}else{

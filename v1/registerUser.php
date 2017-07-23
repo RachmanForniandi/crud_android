@@ -10,9 +10,7 @@ $response = array();
 					isset($_POST['password']))
 		   {
 			//operate the data further
-			
 			$db = new DbOperations();
-
 			$result = $db->createUser(
 										$_POST['username'],
 										$_POST['password'],

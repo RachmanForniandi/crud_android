@@ -8,7 +8,7 @@ $response = array();
 			$db = new DbOperations();
 
 			if($db->userLogin($_POST['username'], $_POST['password'])){
-				$db->getUserByUsername($_POST['username']);
+				$user= $db->getUserByUsername($_POST['username']);
 				$response['error'] = false;
 				$response['id'] = $user['id'];
 				$response['email'] = $user['email'];
